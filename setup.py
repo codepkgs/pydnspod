@@ -14,6 +14,6 @@ setup(
     author='zhanghe',
     author_email='x_hezhang@126.com',
     url='https://github.com/x-hezhang/pydnspod',
-    license='GNU GPLv3',
+    license='GPLv3',
     packages=find_packages()
 )
