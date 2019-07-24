@@ -1,9 +1,7 @@
-import json
-
-from dnspod import Dnspod
+from pydnspod.base import Api
 
 
-class User(Dnspod):
+class User(Api):
     """
     dnspod account information
     """
@@ -45,10 +43,7 @@ class User(Dnspod):
 
         uri = '/User.Modify'
         ret = self._do_request(uri, **payload)
-        if ret.get('status', {}).get('code') == 1:
-            return True
-        else:
-            return False
+        return True if ret.get('status', {}).get('code') == '1' else False
 
     def modify_password(self, old_password, new_password):
         """
@@ -64,10 +59,7 @@ class User(Dnspod):
 
         uri = '/Userpasswd.Modify'
         ret = self._do_request(uri, **payload)
-        if ret.get('status', {}).get('code') == 1:
-            return True
-        else:
-            return False
+        return True if ret.get('status', {}).get('code') == '1' else False
 
     def modify_email(self, old_email, new_email, password):
         """
